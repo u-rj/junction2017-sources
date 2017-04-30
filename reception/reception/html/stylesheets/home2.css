@@ -1,0 +1,37 @@
+body{
+    background:#fff no-repeat;
+    width:1280px;
+    height:800px;
+    margin:0;
+    overflow:hidden;
+}
+
+#text_area {
+    position: absolute;
+    top: 110px;
+    font-size: 120px;
+    width:1200px;
+    height:150px;
+    left:60px;
+    text-align:center;
+}
+
+#item01 {
+    position: absolute;
+    top: 340px;
+    font-size: 100px;
+    width:1200px;
+    height:150px;
+    left:160px;
+}
+
+#count01
+{
+    position: absolute;
+    top: 340px;
+    font-size: 100px; 
+    width:1200px;
+    height:150px;
+    left:900px; 
+    visibility: hidden;
+} 

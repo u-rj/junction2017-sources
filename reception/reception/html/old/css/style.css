@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	font-family:"ヒラギノ角ゴ Pro W9", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+body {
+	width: 100%;
+}
+
+.buttons {
+	width: 90%;
+	margin: 27px auto 0 auto;
+	text-align: center;
+}
+
+.buttons button {
+	
+	font-size: 68px; /* デフォルト：256px; */
+	font-weight: bold;
+
+	width: 100%;
+	line-height: 2;
+	display: inline-block;
+	margin-right: 0%;
+	margin-bottom: 3%;
+
+	/* 角丸の指定 */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+button.buttonA {
+	background-color: #ADD8E6;
+}
+
+button.buttonB {
+	background-color: #FFB6C1;
+}
+
+button.buttonC {
+	background-color: #D3D3D3;
+}
+
+button.buttonD {
+	background-color: #FFFFE0;
+}
+
+.buttons button:last-child {
+	/* margin-right: 0; */
+}

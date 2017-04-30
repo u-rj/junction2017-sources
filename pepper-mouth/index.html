@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="../lib/materialize.min.css" />
+    
+    <title>Server</title>
+    <style>
+        body{
+            background: black;
+            text-align: center;
+        }
+        .face{
+            height: 100vh;
+            width: auto;
+        }
+        .debug{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 10px;
+            color: gray;
+            text-align: right;
+            line-height: 0;
+        }
+    </style>
+</head>
+<body>
+    <img class="face" src="#">
+    <p class="debug"></p>
+
+    <script src="../lib/jquery.min.js"></script>
+    <script src="../lib/socket.io.min.js"></script>
+    <script>
+      $(function() {
+        var socket = io.connect('http://192.168.10.100:8000');
+        socket.on("connect", function() {
+
+            //command-in/ command-out
+            //----------------------------------------
+            socket.on('emotion-out', function(data) {
+                console.log('emotion-out', data);
+                var num = Math.ceil(data * 4);
+                faceChange(num);
+                debug(data + ',' + num);
+            });
+
+            socket.emit('emotion-in', {
+                name: 'data',
+            });
+
+        } );
+
+
+        function faceChange(num){
+            if(num > 6){
+                num = 6;
+            }
+            if(num < 0){
+                num = 0;
+            }
+            $('.face').attr('src', 'pepper-mouth/pepper-mouth' + num + '.png');
+        }
+
+        function debug(text){
+            $('.debug').text(text);
+        }
+
+        faceChange(0);
+
+      });
+    </script>
+</body>
+</html>
